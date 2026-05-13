@@ -7,3 +7,6 @@ openai
 python-dotenv
 pillow
 joblib
+ollama
+requests
+google-generativeai
