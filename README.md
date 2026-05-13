@@ -109,25 +109,40 @@ Passo 1: Criar imagem de teste (Windows)
 powershell
 
 Add-Type -AssemblyName System.Drawing
+
 $bmp = New-Object System.Drawing.Bitmap(400, 200)
+
 $g = [System.Drawing.Graphics]::FromImage($bmp)
+
 $g.Clear([System.Drawing.Color]::White)
+
 $font = New-Object System.Drawing.Font("Arial", 24)
+
 $g.DrawString("COMPROVANTE PIX", $font, [System.Drawing.Brushes]::Black, 50, 50)
+
 $g.DrawString("Valor: R$ 349,90", $font, [System.Drawing.Brushes]::Black, 50, 100)
+
 $g.DrawString("Pedido: #1006", $font, [System.Drawing.Brushes]::Black, 50, 150)
+
 $bmp.Save("$PWD\data\imagens\comprovante_teste.png")
+
 $g.Dispose()
+
 $bmp.Dispose()
+
 Write-Host "✅ Imagem criada!"
 
 Passo 2: Converter para base64 e enviar (Windows)
 powershell
 
 $imgPath = "$PWD\data\imagens\comprovante_teste.png"
+
 $imgBytes = [System.IO.File]::ReadAllBytes($imgPath)
+
 $imgBase64 = [System.Convert]::ToBase64String($imgBytes)
+
 $body = '{"mensagem":"Comprovante de Pix em anexo","numero_pedido":"1006","imagem_base64":"' + $imgBase64 + '"}'
+
 Invoke-RestMethod -Uri http://localhost:5000/atender-completo -Method POST -ContentType "application/json" -Body $body
 
 ==============================================================
