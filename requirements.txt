@@ -1,0 +1,9 @@
+flask
+streamlit
+scikit-learn
+pandas
+numpy
+openai
+python-dotenv
+pillow
+joblib

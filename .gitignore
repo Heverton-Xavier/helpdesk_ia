@@ -1,0 +1,25 @@
+# Ambiente virtual
+venv/
+
+# Arquivos de ambiente
+.env
+
+# Arquivos Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Modelos treinados (muito grandes)
+models/*.pkl
+
+# Imagens temporárias
+temp_*.png
+
+# IDE
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
