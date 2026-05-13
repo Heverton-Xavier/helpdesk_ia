@@ -10,9 +10,6 @@ __pycache__/
 *.pyo
 *.egg-info/
 
-# Modelos treinados (muito grandes)
-models/*.pkl
-
 # Imagens temporárias
 temp_*.png
 
